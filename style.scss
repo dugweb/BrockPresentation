@@ -1,0 +1,85 @@
+$lightgrey: #888;
+$textColor: #bbb;
+
+html, body {
+  font-family: "warnock-pro", georgia, serif;
+  line-height: 1.2em;
+  background: #212121;
+  color: $textColor;
+}
+
+a {
+  position:relative;
+  &:link, &:visited {
+    color: $textColor;
+    text-decoration: none;
+    &:after {
+      content: "";
+      left:0;
+      right: 0;
+      bottom: 5px;
+      position: absolute;
+      border-bottom: 1px dotted $lightgrey;
+    }
+  }
+  &:hover, &:active {
+    color: white;
+    &:after {
+      content: "";
+      left:0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      border-bottom: 1px dotted white;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "pragmatica-web-condensed", arial, sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+h6 {
+  font-family: "warnock-pro";
+  font-style: italic;
+  font-weight: normal;
+  font-size:3rem;
+}
+
+.view-container {
+  position: relative;
+
+  .view-animate {
+    padding:10px;
+    border:1px solid black;
+    
+    &.ng-enter, &.ng-leave {
+      -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+      transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+
+      display:block;
+      width:100%;
+      border-left:1px solid black;
+
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      padding:10px;
+    }
+
+    &.ng-enter {
+      left:100%;
+    }
+    &.ng-enter.ng-enter-active {
+      left:0;
+    }
+    &.ng-leave.ng-leave-active {
+      left:-100%;
+    }
+  }
+}

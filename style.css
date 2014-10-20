@@ -1,0 +1,66 @@
+html, body {
+  font-family: "warnock-pro", georgia, serif;
+  line-height: 1.2em;
+  background: #212121;
+  color: #bbb; }
+
+a {
+  position: relative; }
+  a:link, a:visited {
+    color: #bbb;
+    text-decoration: none; }
+    a:link:after, a:visited:after {
+      content: "";
+      left: 0;
+      right: 0;
+      bottom: 5px;
+      position: absolute;
+      border-bottom: 1px dotted #888; }
+  a:hover, a:active {
+    color: white; }
+    a:hover:after, a:active:after {
+      content: "";
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      border-bottom: 1px dotted white; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "pragmatica-web-condensed", arial, sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 3px; }
+
+h6 {
+  font-family: "warnock-pro";
+  font-style: italic;
+  font-weight: normal;
+  font-size: 3rem; }
+
+.view-container {
+  position: relative; }
+  .view-container .view-animate {
+    padding: 10px;
+    border: 1px solid black; }
+    .view-container .view-animate.ng-enter, .view-container .view-animate.ng-leave {
+      -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s;
+      transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s;
+      display: block;
+      width: 100%;
+      border-left: 1px solid black;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px; }
+    .view-container .view-animate.ng-enter {
+      left: 100%; }
+    .view-container .view-animate.ng-enter.ng-enter-active {
+      left: 0; }
+    .view-container .view-animate.ng-leave.ng-leave-active {
+      left: -100%; }
+
+/*# sourceMappingURL=style.css.map */

@@ -3,8 +3,12 @@ var main = angular.module('presentation', ['ngRoute', 'ngAnimate']);
 main.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
 	$routeProvider
+		.when('/', {
+			templateUrl: 'slides/0-Welcome.html',
+			controller:'slideController'
+		})
 		.when('/1', {
-			templateUrl: 'slides/1-welcome.html',
+			templateUrl: 'slides/1-Selling.html',
 			controller: 'slideController'
 		})
 		.when('/2', {

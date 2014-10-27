@@ -22,6 +22,10 @@ main.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
 		.when('/4', {
 			templateUrl: 'slides/4-Planning.html',
 			controller: 'slideController'
+		})
+		.when('/5', {
+			templateUrl: 'slides/5-Planning.html',
+			controller: 'slideController'
 		});
 
 }]);

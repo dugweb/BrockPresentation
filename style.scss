@@ -1,6 +1,8 @@
 $lightgrey: #888;
 $textColor: #bbb;
 $navWidth: 100%;
+$blueC: rgba(86,160,211,0);
+$blueCvisible: rgba(86,160,211,.5);
 
 
 html, body {
@@ -80,7 +82,7 @@ nav {
     height: 100%;
     &:link, &:visited {
 
-      background-color:rgba(86,160,211,0);
+      background-color:$blueC;
       -webkit-transition:all 600ms;
          -moz-transition:all 600ms;
            -o-transition:all 600ms;
@@ -257,9 +259,28 @@ svg.incomesvg {
   }
   #income-arrow {
     -webkit-animation:income 8s infinite;
+    -moz-animation:income 8s infinite;
+    animation:income 8s infinite;
+    position: relative;
     transform-origin:0% 50%; 
-  }
 
+  }
+  @keyframes income {
+    0%, 100% {
+        transform:rotate(-45deg);
+    }
+    50% {
+        transform:rotate(80deg);
+    }
+  }
+  @-moz-keyframes income {
+    0%, 100% {
+        -moz-transform:rotate(-45deg);
+    }
+    50% {
+        -moz-transform:rotate(80deg);
+    }
+  }
   @-webkit-keyframes income {
     0%, 100% {
         -webkit-transform:rotate(-45deg);
@@ -271,20 +292,22 @@ svg.incomesvg {
 }
 
 #roadmap {
-  width:250%;
   padding: 0;
   overflow: scroll;
   list-style: none;
   counter-reset: roadmap-counter;
+  position: relative;
+
+  -webkit-transition: all 500ms;
   &>li {
     float: left;
-    width:13%;
-    margin-right:2%;
+    width:450px;
+    margin-right:20px;
     &:last-child {
       margin-right:0;
     }
     &:before {
-      content:counter(roadmap-counter);
+      content: counter(roadmap-counter);
       counter-increment:roadmap-counter;
       background:white;
       border-radius: 50%;
@@ -296,13 +319,50 @@ svg.incomesvg {
     }
     ul {
       list-style: none;
-      border:1px solid #fff;
+      border:1px solid darken($lightgrey, 20%);
+      background-color: #333;
       padding: 20px;
+      box-shadow: 0 0 6px #000;
+      transition: all 300ms ; 
+      position: relative;
+      
+      &:hover {
+        border-color:$lightgrey;
+        margin-top:-10px;
+        
+      }
 
       li {
-
+        pointer-events:none;
       }
     }
-
   }
+}
+
+.btn {
+  background-color:$blueC;
+  cursor: pointer;
+  color:white;
+  font-size:.6em;
+  float: left;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 300ms;
+  border:1px solid darken($lightgrey, 20%);
+
+  &:hover {
+    background-color:$blueCvisible;
+    border-color: $lightgrey;
+  }
+}
+
+.btn.next, .btn.back {
+  position: absolute;
+  bottom: 0;
+}
+.btn.next {
+   right:0;
+}
+.btn.back {
+  left:0;
 }

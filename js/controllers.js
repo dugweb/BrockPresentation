@@ -10,9 +10,6 @@ main.controller('welcomeController', ['$scope', function($scope) {
 	$scope.init = function() {
 		console.log('welcome');
 	}
-	function judist() {
-
-	}
 	$scope.init();
 }]);
 
@@ -63,11 +60,8 @@ main.controller('definitionController', ['$scope', function($scope) {
 
 	$scope.init = function() {
 		console.log('definition');
-		console.log(tl);
 	}
-	function judist() {
-		
-	}
+
 	$scope.init();
 }]);
 
@@ -83,44 +77,66 @@ main.controller('timeController', ['$scope', function($scope) {
 	$scope.init = function() {
 		console.log('time');
 	}
-	function judist() {
-
-	}
 	$scope.init();
 }]);
 
 /* ---------------------------------------------------------
 |
-|  Welcome Controller
+|  Income Controller
 |
 |  --------------------------------------------------------- */
 
 main.controller('incomeController', ['$scope', function($scope) {
-	var tl = tl || new TimelineLite();
 
 	$scope.init = function() {
 		console.log('income');
-	}
-	function judist() {
-
 	}
 	$scope.init();
 }]);
 
 /* ---------------------------------------------------------
 |
-|  Welcome Controller
+|  RoadMap Controller
 |
 |  --------------------------------------------------------- */
 
 main.controller('roadmapController', ['$scope', function($scope) {
-	var tl = tl || new TimelineLite();
 
+	var $el = $('#roadmap');
+	var $lis = $el.find(">li");
+	var curIndex = 0;
 	$scope.init = function() {
-		console.log('roadmap');
+		$el.width(($lis.width() + 20) * $lis.length);
+		$lis.each(function(i) {
+			this.addEventListener('click', clickHandler);
+		});
 	}
-	function judist() {
 
+	$scope.beginning = function() {
+		curIndex -= 1;
+		if (curIndex < 0) {
+			curIndex = $lis.length - 1;
+		}
+
+		clickHandler();
 	}
+	$scope.nextMeeting = function() {
+		curIndex += 1;
+		if (curIndex > $lis.length - 1) {
+			curIndex = 0;
+		}
+		clickHandler();
+	}
+
+
+	function clickHandler(e) {
+		if (e != undefined) {
+			// grab the index of the slide that was clicked
+			curIndex = $el.find(e.target.parentElement).index();	
+		}
+
+		$el.css({'margin-left': -curIndex * ($lis.width() + 20)});
+	}
+
 	$scope.init();
 }]);

@@ -251,26 +251,26 @@ svg.incomesvg {
   }
   @keyframes income {
     0%, 100% {
-        transform:rotate(-45deg);
+        transform:rotateZ(-45deg);
     }
     50% {
-        transform:rotate(80deg);
+        transform:rotateZ(80deg);
     }
   }
   @-moz-keyframes income {
     0%, 100% {
-        -moz-transform:rotate(-45deg);
+        -moz-transform:rotateZ(-45deg);
     }
     50% {
-        -moz-transform:rotate(80deg);
+        -moz-transform:rotateZ(80deg);
     }
   }
   @-webkit-keyframes income {
     0%, 100% {
-        -webkit-transform:rotate(-45deg);
+        -webkit-transform:rotateZ(-45deg);
     }
     50% {
-        -webkit-transform:rotate(80deg);
+        -webkit-transform:rotateZ(80deg);
     }
   }
 }
@@ -283,14 +283,16 @@ svg.incomesvg {
   -webkit-transition: all 500ms;
   &>li {
     position: relative;
-    font-size:.4em;
+    font-size:.5em;
     line-height: 1.4em;
     display: inline-block;
     vertical-align: top;
-    width:150px;
+    width: calc(25% - 26px);
     margin-right:20px;
     transition: all 500ms;
     height: 220px;
+    box-sizing: border-box;
+    
     &:last-child {
       margin-right:0;
     }

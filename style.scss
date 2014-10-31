@@ -27,25 +27,9 @@ a {
   &:link, &:visited {
     color: $textColor;
     text-decoration: none;
-    // &:after {
-    //   content: "";
-    //   left:0;
-    //   right: 0;
-    //   bottom: 5px;
-    //   position: absolute;
-    //   border-bottom: 1px dotted $lightgrey;
-    // }
   }
   &:hover, &:active {
     color: white;
-    // &:after {
-    //   content: "";
-    //   left:0;
-    //   right: 0;
-    //   bottom: 0;
-    //   position: absolute;
-    //   border-bottom: 1px dotted white;
-    // }
   }
 }
 #logo {
@@ -292,17 +276,21 @@ svg.incomesvg {
 }
 
 #roadmap {
-  padding: 0;
-  overflow: scroll;
   list-style: none;
   counter-reset: roadmap-counter;
   position: relative;
 
   -webkit-transition: all 500ms;
   &>li {
-    float: left;
-    width:450px;
+    position: relative;
+    font-size:.4em;
+    line-height: 1.4em;
+    display: inline-block;
+    vertical-align: top;
+    width:150px;
     margin-right:20px;
+    transition: all 500ms;
+    height: 220px;
     &:last-child {
       margin-right:0;
     }
@@ -316,6 +304,15 @@ svg.incomesvg {
       height: 40px;
       display: block;
       text-align: center;
+      z-index: 2;
+      top:-20px;
+      left:-20px;
+      position: absolute;
+      line-height: 3.5em;
+    }
+    &.judist {
+      transform: scale(1.7);
+      z-index: 10;
     }
     ul {
       list-style: none;
@@ -325,6 +322,7 @@ svg.incomesvg {
       box-shadow: 0 0 6px #000;
       transition: all 300ms ; 
       position: relative;
+      height: 200px;
       
       &:hover {
         border-color:$lightgrey;

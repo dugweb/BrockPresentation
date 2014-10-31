@@ -105,11 +105,16 @@ main.controller('roadmapController', ['$scope', function($scope) {
 	var $el = $('#roadmap');
 	var $lis = $el.find(">li");
 	var curIndex = 0;
+	var timer;
 	$scope.init = function() {
-		$el.width(($lis.width() + 20) * $lis.length);
+		// $el.width(($lis.width() + 20) * $lis.length);
 		$lis.each(function(i) {
 			this.addEventListener('click', clickHandler);
 		});
+		timer = setTimeout(function() {
+			$lis.eq(0).addClass('judist');
+		}, 3000);
+		
 	}
 
 	$scope.beginning = function() {
@@ -135,7 +140,12 @@ main.controller('roadmapController', ['$scope', function($scope) {
 			curIndex = $el.find(e.target.parentElement).index();	
 		}
 
-		$el.css({'margin-left': -curIndex * ($lis.width() + 20)});
+		if (timer != undefined) {
+			clearTimeout(timer);
+		}
+		$lis.removeClass('judist');
+		$(e.target.parentElement).addClass('judist');
+		// $el.css({'margin-left': -curIndex * ($lis.width() + 20)});
 	}
 
 	$scope.init();

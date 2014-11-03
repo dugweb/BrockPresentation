@@ -95,7 +95,6 @@ h6 {
   font-size: 3rem;
   line-height: 1.1em;
   margin: 0;
-  margin-right: 30%;
   padding: 0; }
 
 p {
@@ -181,6 +180,10 @@ svg.incomesvg {
   width: 5px;
   color: #007bb6; }
 
+/* Slides */
+#welcome {
+  height: 70%; }
+
 #selling .sold-marker {
   right: 10%;
   padding-top: 10%; }
@@ -243,7 +246,7 @@ svg.incomesvg {
       position: absolute;
       line-height: 3.5em; }
     #roadmap > li.judist {
-      transform: scale(1.7);
+      transform: scale(1.7) translateX(20%);
       z-index: 10; }
     #roadmap > li ul {
       list-style: none;

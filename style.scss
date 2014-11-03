@@ -120,7 +120,6 @@ h6 {
   font-size:3rem;
   line-height: 1.1em;
   margin:0;
-  margin-right:30%;
   padding:0;
 }
 
@@ -228,6 +227,12 @@ svg.incomesvg {
   color:rgb(0, 123, 182);
 }
 
+/* Slides */
+
+#welcome {
+  height: 70%;
+}
+
 #selling {
   .sold-marker {
     right: 10%;
@@ -313,7 +318,7 @@ svg.incomesvg {
       line-height: 3.5em;
     }
     &.judist {
-      transform: scale(1.7);
+      transform: scale(1.7) translateX(20%);
       z-index: 10;
     }
     ul {

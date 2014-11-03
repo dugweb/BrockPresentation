@@ -8,8 +8,16 @@ main.controller('welcomeController', ['$scope', function($scope) {
 	var tl = tl || new TimelineLite();
 
 	$scope.init = function() {
-		console.log('welcome');
+		window.addEventListener('resize', resizeHandler);
+		resizeHandler();
 	}
+	function resizeHandler() {
+		$('#welcome').textfill({
+			'innerTag' : 'h6',
+			'maxFontPixels' : '200',
+		});
+	}
+
 	$scope.init();
 }]);
 
